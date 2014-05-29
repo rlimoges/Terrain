@@ -14,17 +14,19 @@
     <link rel="stylesheet" href="farbtastic/farbtastic.css" type="text/css"/>
 
     <link href="css/smoothness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.js"></script>
     <script type="text/javascript" src="farbtastic/farbtastic.js"></script>
 
-    <script src="js/three.min.js"></script>
-    <script src="js/CrosseyedEffect.js"></script>
-    <script src="js/OrbitControls.js"></script>
-    <script src="js/Detector.js"></script>
-    <script src="js/stats.min.js"></script>
+    <script type="text/javascript" src="js/CrosseyedEffect.js"></script>
+    <script type="text/javascript" src="js/OrbitControls.js"></script>
+    <script type="text/javascript" src="js/Detector.js"></script>
+    <script type="text/javascript" src="js/stats.min.js"></script>
 
-    <script src="js/ui.js"></script>
+    <script defer="defer" src="js/generator.js"></script>
+    <script type="text/javascript" src="js/ui.js"></script>
 </head>
 <body>
 
@@ -143,7 +145,6 @@
 <script id="fragmentShader" type="x-shader/x-fragment">
     <?php include("shaders/fragment.js"); ?>
 </script>
-<script src="js/generator.js"></script>
 
 </body>
 </html>

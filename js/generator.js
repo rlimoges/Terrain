@@ -151,6 +151,8 @@ var app = new function () {
     };
 
     app.init = function () {
+        loadUI();
+        app.initUI();
         app.renderer = new THREE.WebGLRenderer();
 
         app.scene = new THREE.Scene();
@@ -172,7 +174,10 @@ var app = new function () {
         app.effect.setSize( window.innerWidth, window.innerHeight );
         app.effect.separation = 0.1                      ;
 
-        console.log(app);
+        app.animate();
+        app.addEventListeners();
+
+        console.log("Initialized:", app);
     };
 
     app.animate = function () {
@@ -272,9 +277,8 @@ var app = new function () {
         app.windowResize();
         window.addEventListener('resize', app.windowResize, false);
     };
-
-    app.init();
-    app.animate();
 };
 
-app.addEventListeners();
+
+
+app.init();
