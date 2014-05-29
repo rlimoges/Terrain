@@ -279,6 +279,4 @@ var app = new function () {
     };
 };
 
-
-
 app.init();

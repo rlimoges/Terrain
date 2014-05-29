@@ -92,6 +92,13 @@ void main(void){
                     g = lowColor[1];
                     b = lowColor[2];
                 }
+
+                float f = tan(sin(vUv.x * vUv.y) * 50000.0 + time);
+                if ( f > -0.2 && f < 0.2) {
+                    r += 0.05;
+                    g += 0.05;
+                    b += 0.05;
+                }
             }
 
             if (c > mountainLevel / 255.0) {
@@ -118,6 +125,7 @@ void main(void){
         }
 
         vec4 n = vec4(r,g,b,1.0);
+
 
         gl_FragColor = (h + n*9.0) / 10.0;
     } else {

@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="farbtastic/farbtastic.css" type="text/css"/>
-
     <link href="css/smoothness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery-1.10.2.js"></script>

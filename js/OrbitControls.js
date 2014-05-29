@@ -305,10 +305,9 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		return Math.pow( 0.95, scope.zoomSpeed );
 
-	}
+fggggggggrttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt                                                                                                                                                                                                                                                                                                                                                                                                                         	}
 
 	function onMouseDown( event ) {
-//        console.log(event);
 
 		if ( scope.enabled === false ) return;
 		event.preventDefault();
