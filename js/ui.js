@@ -14,7 +14,9 @@ function loadUI() {
             slide: function (event, ui) {
                 app.uniforms.waterLevel.value = ui.values[0];
                 app.uniforms.mountainLevel.value = ui.values[1];
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#veins").slider({
@@ -23,7 +25,9 @@ function loadUI() {
             max: 7,
             slide: function (event, ui) {
                 app.heightField.veins = ui.value;
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#repeatX").slider({
@@ -32,7 +36,9 @@ function loadUI() {
             max: 5,
             slide: function (event, ui) {
                 app.uniforms.uvScale.value.x = ui.value;
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#repeatY").slider({
@@ -41,7 +47,9 @@ function loadUI() {
             max: 5,
             slide: function (event, ui) {
                 app.uniforms.uvScale.value.y = ui.value;
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#roughness").slider({
@@ -50,7 +58,9 @@ function loadUI() {
             max: 800,
             slide: function (event, ui) {
                 app.heightField.roughness = ui.value;
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#vHeight").slider({
@@ -59,7 +69,9 @@ function loadUI() {
             max: 300,
             slide: function (event, ui) {
                 app.uniforms.vHeight.value = ui.value * 0.001;
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#blur").slider({
@@ -68,7 +80,9 @@ function loadUI() {
             max: 900,
             slide: function (event, ui) {
                 app.uniforms.blur.value = ui.value;
-            }
+            },
+            start: function() { app.uiSliding = true; },
+            stop: function() { app.uiSliding = false; }
         });
 
         $("#shading").button().on('change', function () {
