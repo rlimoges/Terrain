@@ -12,6 +12,12 @@ body {
 hr {
     margin-top: 10px;
 }
+
+#textures #loaderGIF {
+    display: block;
+    margin: 25px auto;
+    display: none;
+}
 form {
     margin: 0;
     padding: 0;

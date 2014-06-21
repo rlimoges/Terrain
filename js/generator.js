@@ -144,6 +144,7 @@ var app = new function () {
         };
 
         app.heightField.generate = function () {
+            $("#loaderGIF").css('display', 'block');
             app.heightField.array = new Array();
             app.heightField.size = 1;
             app.uniforms.pass.value = 0;
@@ -170,9 +171,9 @@ var app = new function () {
 
         app.setMode(0);
 
-        app.effect = new THREE.CrosseyedEffect( app.renderer );
-        app.effect.setSize( window.innerWidth, window.innerHeight );
-        app.effect.separation = 0.1                      ;
+        app.effect = new THREE.CrosseyedEffect(app.renderer);
+        app.effect.setSize(window.innerWidth, window.innerHeight);
+        app.effect.separation = 0.1;
 
         app.animate();
         app.addEventListeners();
@@ -193,6 +194,9 @@ var app = new function () {
         if (app.uniforms.pass.value < 11 + app.uniforms.HD.value) {
             app.heightField.updateField();
             app.heightField.updateTexture();
+        } else if (app.uniforms.pass.value == 11 + app.uniforms.HD.value) {
+            $("#loaderGIF").css("display", "none");
+
         }
 
 //        if (app.uniforms.viewMode.value == 1) {
@@ -203,8 +207,8 @@ var app = new function () {
 //            app.mesh.rotation.z += 0.005;
 //        }
 
-        if(app.Mode3D && app.uniforms.viewMode.value > 0){
-            app.effect.render( app.scene, app.camera );
+        if (app.Mode3D && app.uniforms.viewMode.value > 0) {
+            app.effect.render(app.scene, app.camera);
             app.effect.setSize(window.innerWidth, window.innerHeight);
         } else {
             app.renderer.render(app.scene, app.camera);
@@ -222,7 +226,7 @@ var app = new function () {
                     app.controls = null;
                     app.camera = new THREE.Camera();
                     app.camera.position.z = 1;
-                    app.camera.target = new THREE.Vector3(0,0,0);
+                    app.camera.target = new THREE.Vector3(0, 0, 0);
                     app.mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2, 1, 1), app.shaderMaterial);
                     break;
                 }
@@ -231,10 +235,10 @@ var app = new function () {
                 {
                     app.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, .1, 10);
                     app.camera.position.z = 2;
-                    app.camera.target = new THREE.Vector3(0,0,0);
+                    app.camera.target = new THREE.Vector3(0, 0, 0);
                     var resolution = (app.uniforms.HD.value + 1.0) * 100;
 
-                    app.controls = new THREE.OrbitControls( app.camera );
+                    app.controls = new THREE.OrbitControls(app.camera);
 
                     app.mesh = new THREE.Mesh(new THREE.SphereGeometry(0.4, resolution, resolution), app.shaderMaterial);
                     break;
@@ -246,10 +250,10 @@ var app = new function () {
                     app.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, .1, 10);
                     app.camera.position.z = 1.95;
                     app.camera.position.x = 0;
-                    app.camera.target = new THREE.Vector3(0,0,0);
+                    app.camera.target = new THREE.Vector3(0, 0, 0);
                     var resolution = (app.uniforms.HD.value + 1.0) * 200;
 
-                    app.controls = new THREE.OrbitControls( app.camera );
+                    app.controls = new THREE.OrbitControls(app.camera);
 
                     app.mesh = new THREE.Mesh(new THREE.PlaneGeometry(1.75, 1.75, resolution, resolution), app.shaderMaterial);
                     app.mesh.rotation.x = -1;
@@ -270,7 +274,7 @@ var app = new function () {
 
         app.renderer.setSize(window.innerWidth, window.innerHeight);
 
-        app.effect.setSize( window.innerWidth, window.innerHeight );
+        app.effect.setSize(window.innerWidth, window.innerHeight);
     };
 
     app.addEventListeners = function () {

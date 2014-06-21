@@ -68,6 +68,8 @@
             </div>
 
             <input type="button" id="generate" value="Generate texture"/>
+
+            <img src="img/generating.gif" alt="" id="loaderGIF" />
         </div>
 
         <h3>Shading</h3>
