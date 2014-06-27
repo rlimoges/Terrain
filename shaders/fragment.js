@@ -12,10 +12,13 @@ uniform int HFcycling;
 uniform float HFrame;
 uniform vec3 lowColor;
 uniform float lowMode;
+uniform float lowFX;
 uniform vec3 mediumColor;
 uniform float mediumMode;
+uniform float medFX;
 uniform vec3 highColor;
 uniform float highMode;
+uniform float highFX;
 uniform float blur;
 
 void main(void){
@@ -82,6 +85,14 @@ void main(void){
                     b = mediumColor[2];
                 }
 
+                if(medFX >= 1.0){
+                    float f = tan(sin(vUv.x * vUv.y) * 50000.0 + time);
+                    if ( f > -0.2 && f < 0.2) {
+                        r += 0.05;
+                        g += 0.05;
+                        b += 0.05;
+                    }
+                }
             } else {
                 if (lowMode == 1.0) {
                     r = lowColor[0] + c;
@@ -93,11 +104,13 @@ void main(void){
                     b = lowColor[2];
                 }
 
-                float f = tan(sin(vUv.x * vUv.y) * 50000.0 + time);
-                if ( f > -0.2 && f < 0.2) {
-                    r += 0.05;
-                    g += 0.05;
-                    b += 0.05;
+                if(lowFX >= 1.0){
+                    float f = tan(sin(vUv.x * vUv.y) * 50000.0 + time);
+                    if ( f > -0.2 && f < 0.2) {
+                        r += 0.05;
+                        g += 0.05;
+                        b += 0.05;
+                    }
                 }
             }
 
@@ -113,6 +126,15 @@ void main(void){
                     r = highColor[0];
                     g = highColor[1];
                     b = highColor[2];
+                }
+
+                if(highFX >= 1.0){
+                    float f = tan(sin(vUv.x * vUv.y) * 50000.0 + time);
+                    if ( f > -0.2 && f < 0.2) {
+                        r += 0.05;
+                        g += 0.05;
+                        b += 0.05;
+                    }
                 }
             }
         }

@@ -108,6 +108,7 @@
             <div id="lowModeSet">
                 <input type="radio" id="lowModeRamp" name="lowMode" checked="checked"><label for="lowModeRamp">Ramp</label>
                 <input type="radio" id="lowModeFlat" name="lowMode"><label for="lowModeFlat">Flat</label>
+                <input type="checkbox" id="lowFX" name="lowFX"><label for="lowFX">FX</label>
             </div>
         </div>
 
@@ -121,6 +122,7 @@
             <div id="mediumModeSet">
                 <input type="radio" id="mediumModeRamp" name="mediumMode" checked="checked"><label for="mediumModeRamp">Ramp</label>
                 <input type="radio" id="mediumModeFlat" name="mediumMode"><label for="mediumModeFlat">Flat</label>
+                <input type="checkbox" id="medFX" name="medFX"><label for="medFX">FX</label>
             </div>
         </div>
 
@@ -134,9 +136,9 @@
             <div id="highModeSet">
                 <input type="radio" id="highModeRamp" name="highMode" checked="checked"><label for="highModeRamp">Ramp</label>
                 <input type="radio" id="highModeFlat" name="highMode"><label for="highModeFlat">Flat</label>
+                <input type="checkbox" id="highFX" name="highFX"><label for="highFX">FX</label>
             </div>
         </div>
-
     </div>
 </form>
 

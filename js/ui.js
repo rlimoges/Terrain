@@ -126,6 +126,16 @@ function loadUI() {
         });
         pickerHigh.setColor("#DDDDDD");
 
+        $("#lowFX").button().on('change', function () {
+            app.uniforms.lowFX.value =(this.checked) ? 1:0;
+        });
+        $("#medFX").button().on('change', function () {
+            app.uniforms.medFX.value =(this.checked) ? 1:0;
+        });
+        $("#highFX").button().on('change', function () {
+            app.uniforms.highFX.value =(this.checked) ? 1:0;
+        });
+
         $("#viewSet").buttonset();
 
         $("#mapView").button().on('click', function () {
