@@ -202,9 +202,9 @@ var app = new function () {
 
         }
 
-//        if (app.uniforms.viewMode.value == 1) {
-//            app.mesh.rotation.y += 0.005;
-//        }
+        if (app.uniforms.viewMode.value == 1) {
+            app.mesh.rotation.y += 0.0015;
+        }
 //
 //        if (app.uniforms.viewMode.value == 2) {
 //            app.mesh.rotation.z += 0.005;
@@ -267,6 +267,20 @@ var app = new function () {
             app.scene.add(app.mesh);
             app.uniforms.viewMode.value = mode;
         }
+    };
+
+    app.randomize = function(){
+        app.heightField.veins = Math.ceil(Math.random()* 7);
+        $("#veins").slider('value', app.heightField.veins);
+
+        app.heightField.roughness = Math.ceil(Math.random()* 650 + 150);
+        $("#roughness").slider('value', app.heightField.roughness);
+
+        app.pickerLow.setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+        app.pickerMedium.setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+        app.pickerHigh.setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+
+        app.heightField.generate();
     };
 
     app.windowResize = function () {
