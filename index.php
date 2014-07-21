@@ -69,6 +69,8 @@
 
             <input type="button" id="generate" value="Generate texture"/>
 
+            <input type="button" id="randomize" value="Randomize"/>
+
             <img src="img/generating.gif" alt="" id="loaderGIF" />
         </div>
 

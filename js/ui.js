@@ -6,6 +6,10 @@ function loadUI() {
             app.heightField.generate();
         });
 
+        $("#randomize").button().on('click', function () {
+            app.randomize();
+        });
+
         $("#waterLevel").slider({
             range: true,
             values: [ 50, 200 ],
@@ -105,26 +109,26 @@ function loadUI() {
             app.uniforms.HFcycling.value = (this.checked) ? 1:0;
         });
 
-        var pickerLow = $.farbtastic('#pickerLow', function (color) {
+        app.pickerLow = $.farbtastic('#pickerLow', function (color) {
             $('#colorLow').css('color', color);
             var rgb = hexToRgb(color);
             app.uniforms.lowColor.value = new THREE.Vector3(rgb.r / 255, rgb.g /255, rgb.b / 255);
         });
-        pickerLow.setColor("#5577FF");
+        app.pickerLow.setColor("#5577FF");
 
-        var pickerMedium = $.farbtastic('#pickerMedium',function (color) {
+        app.pickerMedium = $.farbtastic('#pickerMedium',function (color) {
             $('#colorMedium').css('color', color);
             var rgb = hexToRgb(color);
             app.uniforms.mediumColor.value = new THREE.Vector3(rgb.r / 255, rgb.g /255, rgb.b / 255);
         });
-        pickerMedium.setColor("#66CC22");
+        app.pickerMedium.setColor("#66CC22");
 
-        var pickerHigh = $.farbtastic('#pickerHigh', function (color) {
+        app.pickerHigh = $.farbtastic('#pickerHigh', function (color) {
             $('#colorHigh').css('color', color);
             var rgb = hexToRgb(color);
             app.uniforms.highColor.value = new THREE.Vector3(rgb.r / 255, rgb.g /255, rgb.b / 255);
         });
-        pickerHigh.setColor("#DDDDDD");
+        app.pickerHigh.setColor("#DDDDDD");
 
         $("#lowFX").button().on('change', function () {
             app.uniforms.lowFX.value =(this.checked) ? 1:0;

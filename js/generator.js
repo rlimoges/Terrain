@@ -269,16 +269,32 @@ var app = new function () {
         }
     };
 
-    app.randomize = function(){
-        app.heightField.veins = Math.ceil(Math.random()* 7);
+    app.randomize = function () {
+        var v = Math.random() * 300;
+        $("#vHeight").slider('value', v);
+        app.uniforms.vHeight.value = v * 0.001;
+
+        app.uniforms.waterLevel.value = Math.random() * 200;
+        app.uniforms.mountainLevel.value = (Math.random() * (255 - app.uniforms.waterLevel.value)) + app.uniforms.waterLevel.value;
+        $("#waterLevel").slider('values', [app.uniforms.waterLevel.value, app.uniforms.mountainLevel.value]);
+
+        app.heightField.veins = Math.ceil(Math.random() * 6);
         $("#veins").slider('value', app.heightField.veins);
 
-        app.heightField.roughness = Math.ceil(Math.random()* 650 + 150);
+        app.heightField.roughness = Math.ceil(Math.random() * 650 + 150);
         $("#roughness").slider('value', app.heightField.roughness);
 
-        app.pickerLow.setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16));
-        app.pickerMedium.setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16));
-        app.pickerHigh.setColor('#'+(Math.random()*0xFFFFFF<<0).toString(16));
+        app.pickerLow.setColor('#' + (Math.random() * 0xFFFFFF << 0).toString(16));
+        app.pickerMedium.setColor('#' + (Math.random() * 0xFFFFFF << 0).toString(16));
+        app.pickerHigh.setColor('#' + (Math.random() * 0xFFFFFF << 0).toString(16));
+
+        app.uniforms.lowFX.value = Math.random() > 0.5 ? 0 : 1;
+        app.uniforms.medFX.value= Math.random() > 0.5 ? 0 : 1;
+        app.uniforms.highFX.value = Math.random() > 0.5 ? 0 : 1;
+
+        app.uniforms.lowMode.value = Math.random() > 0.5 ? 1.0 : 0.0;
+        app.uniforms.mediumMode.value = Math.random() > 0.5 ? 1.0 : 0.0;
+        app.uniforms.highMode.value = Math.random() > 0.5 ? 1.0 : 0.0;
 
         app.heightField.generate();
     };
