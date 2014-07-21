@@ -249,7 +249,6 @@ var app = new function () {
 
                 case 2:
                 {
-
                     app.camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, .1, 10);
                     app.camera.position.z = 1.95;
                     app.camera.position.x = 0;
@@ -270,11 +269,11 @@ var app = new function () {
     };
 
     app.randomize = function () {
-        var v = Math.random() * 300;
+        var v = Math.random() * 150 + 10;
         $("#vHeight").slider('value', v);
         app.uniforms.vHeight.value = v * 0.001;
 
-        app.uniforms.waterLevel.value = Math.random() * 200;
+        app.uniforms.waterLevel.value = Math.random() * 150 + 50;
         app.uniforms.mountainLevel.value = (Math.random() * (255 - app.uniforms.waterLevel.value)) + app.uniforms.waterLevel.value;
         $("#waterLevel").slider('values', [app.uniforms.waterLevel.value, app.uniforms.mountainLevel.value]);
 
@@ -293,8 +292,10 @@ var app = new function () {
         app.uniforms.highFX.value = Math.random() > 0.5 ? 0 : 1;
 
         app.uniforms.lowMode.value = Math.random() > 0.5 ? 1.0 : 0.0;
-        app.uniforms.mediumMode.value = Math.random() > 0.5 ? 1.0 : 0.0;
+        app.uniforms.mediumMode.value = 0;
         app.uniforms.highMode.value = Math.random() > 0.5 ? 1.0 : 0.0;
+
+        app.uniforms.uvScale.value.y = Math.ceil(Math.random()*2);
 
         app.heightField.generate();
     };
